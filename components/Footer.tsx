@@ -1,18 +1,17 @@
+"use client";
 import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/5 bg-ink2 mt-auto">
+    <footer className="border-t border-gray300 bg-navyMid mt-auto">
       <div className="max-w-6xl mx-auto px-6 py-14 grid grid-cols-1 md:grid-cols-3 gap-10">
         {/* Brand */}
         <div>
-          <p className="font-display text-xl text-sand mb-1">
-            Africa Narrative Signals
-          </p>
-          <p className="text-[0.72rem] tracking-[0.15em] uppercase text-muted mb-4">
+          <p className="font-display text-xl text-gold mb-1">Africa Narrative Signals</p>
+          <p className="text-[0.72rem] tracking-widest2 uppercase text-gray500 mb-4">
             Independent Research Organization
           </p>
-          <p className="text-sm text-muted leading-relaxed max-w-xs">
+          <p className="text-sm text-gray500 leading-relaxed max-w-xs">
             Analyzing political narratives, tracking misinformation, and
             strengthening information integrity across Africa.
           </p>
@@ -20,9 +19,7 @@ export default function Footer() {
 
         {/* Navigation */}
         <div>
-          <p className="text-[0.68rem] tracking-[0.2em] uppercase text-gold mb-4 font-medium">
-            Navigation
-          </p>
+          <p className="section-label">Navigation</p>
           <ul className="flex flex-col gap-2.5">
             {[
               { href: "/", label: "Home" },
@@ -32,10 +29,7 @@ export default function Footer() {
               { href: "/contact", label: "Contact" },
             ].map((link) => (
               <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="text-sm text-muted hover:text-sand transition-colors"
-                >
+                <Link href={link.href} className="gold-link">
                   {link.label}
                 </Link>
               </li>
@@ -45,10 +39,8 @@ export default function Footer() {
 
         {/* Newsletter */}
         <div>
-          <p className="text-[0.68rem] tracking-[0.2em] uppercase text-gold mb-4 font-medium">
-            Intelligence Briefing
-          </p>
-          <p className="text-sm text-muted mb-4 leading-relaxed">
+          <p className="section-label">Intelligence Briefing</p>
+          <p className="text-sm text-gray500 mb-4 leading-relaxed">
             Receive our weekly analysis on African narrative trends directly in
             your inbox.
           </p>
@@ -56,24 +48,20 @@ export default function Footer() {
             <input
               type="email"
               placeholder="your@email.com"
-              className="flex-1 bg-ink3 border border-white/8 px-3 py-2.5 text-sm text-sand placeholder:text-muted/50 outline-none focus:border-gold/40 transition-colors"
+              className="form-input"
             />
-            <button
-              type="submit"
-              className="px-4 py-2.5 bg-gold text-ink text-[0.68rem] tracking-[0.1em] uppercase font-medium hover:bg-gold2 transition-colors"
-            >
+            <button type="submit" className="btn-primary">
               Join
             </button>
           </form>
         </div>
       </div>
 
-      <div className="border-t border-white/5 max-w-6xl mx-auto px-6 py-5 flex flex-col md:flex-row items-center justify-between gap-2">
-        <p className="text-[0.7rem] text-muted/60">
-          © {new Date().getFullYear()} Africa Narrative Signals. All rights
-          reserved.
+      <div className="border-t border-gray300 max-w-6xl mx-auto px-6 py-5 flex flex-col md:flex-row items-center justify-between gap-2">
+        <p className="text-[0.7rem] text-gray500/60">
+          © {new Date().getFullYear()} Africa Narrative Signals. All rights reserved.
         </p>
-        <p className="text-[0.7rem] text-muted/40">
+        <p className="text-[0.7rem] text-gray500/40">
           Independent · Non-partisan · Africa-focused
         </p>
       </div>

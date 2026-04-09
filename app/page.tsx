@@ -1,10 +1,9 @@
-
 import type { Metadata } from "next";
 import Link from "next/link";
 import { articles, focusAreas } from "@/lib/data";
 import ArticleCard from "@/components/ArticleCard";
 import SectionLabel from "@/components/SectionLabel";
-import Newsletterform from "@/components/Newsletterform";
+import NewsletterForm from "@/components/NewsletterForm"; // ✅ Client Component
 
 export const metadata: Metadata = {
   title: "Africa Narrative Signals | Independent Research Organization",
@@ -173,22 +172,10 @@ export default function HomePage() {
               incidents, and digital democracy developments — delivered to your
               inbox.
             </p>
-            <form
-              className="flex gap-0 max-w-md mx-auto"
-              onSubmit={(e) => e.preventDefault()}
-            >
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 bg-ink2 border border-white/8 px-4 py-3 text-sm text-sand placeholder:text-muted/50 outline-none focus:border-gold/40 transition-colors"
-              />
-              <button
-                type="submit"
-                className="px-5 py-3 bg-gold text-ink text-[0.72rem] tracking-[0.1em] uppercase font-medium hover:bg-gold2 transition-colors whitespace-nowrap"
-              >
-                Subscribe
-              </button>
-            </form>
+
+            {/* ✅ Client Component Form */}
+            <NewsletterForm />
+
             <p className="text-[0.65rem] text-muted/50 mt-3">
               No spam. Unsubscribe at any time.
             </p>

@@ -25,18 +25,16 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-ink/95 backdrop-blur-md border-b border-white/5 py-3"
-          : "py-5"
+        scrolled ? "bg-navyMid/95 backdrop-blur-md border-b border-white/5 py-3" : "py-5"
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex flex-col leading-none group">
-          <span className="font-display text-lg text-sand font-medium tracking-tight">
+        <Link href="/" className="flex flex-col leading-none">
+          <span className="font-display text-lg text-gold font-medium tracking-tight">
             ANS
           </span>
-          <span className="text-[0.55rem] tracking-[0.2em] uppercase text-muted group-hover:text-gold transition-colors">
+          <span className="text-[0.55rem] tracking-widest2 uppercase text-gray500">
             Africa Narrative Signals
           </span>
         </Link>
@@ -47,11 +45,7 @@ export default function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className={`text-[0.75rem] tracking-[0.12em] uppercase font-medium transition-colors duration-200 ${
-                pathname === link.href
-                  ? "text-gold"
-                  : "text-muted hover:text-sand"
-              }`}
+              className={`nav-link ${pathname === link.href ? "active" : ""}`}
             >
               {link.label}
             </Link>
@@ -61,7 +55,7 @@ export default function Navbar() {
         {/* Desktop CTA */}
         <Link
           href="/contact"
-          className="hidden md:inline-flex items-center gap-2 px-4 py-2 border border-gold/30 text-gold text-[0.72rem] tracking-[0.12em] uppercase font-medium hover:bg-gold/10 transition-all duration-200"
+          className="hidden md:inline-flex btn-primary"
         >
           Subscribe
         </Link>
@@ -69,32 +63,24 @@ export default function Navbar() {
         {/* Mobile hamburger */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden flex flex-col gap-1.5 p-1"
+          className="md:hidden mobile-toggle flex flex-col gap-1.5 p-1"
           aria-label="Toggle menu"
         >
-          <span
-            className={`block w-5 h-px bg-sand transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`}
-          />
-          <span
-            className={`block w-5 h-px bg-sand transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`}
-          />
-          <span
-            className={`block w-5 h-px bg-sand transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`}
-          />
+          <span className={`block w-5 h-px bg-white transition-all ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
+          <span className={`block w-5 h-px bg-white transition-all ${menuOpen ? "opacity-0" : ""}`} />
+          <span className={`block w-5 h-px bg-white transition-all ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
         </button>
       </div>
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-ink2 border-t border-white/5 py-6 px-6 flex flex-col gap-5">
+        <div className="mobile-menu md:hidden absolute top-full left-0 right-0 bg-navy px-6 py-6 flex flex-col gap-5">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              className={`text-[0.78rem] tracking-[0.15em] uppercase font-medium transition-colors ${
-                pathname === link.href ? "text-gold" : "text-muted"
-              }`}
+              className={`text-white text-sm uppercase ${pathname === link.href ? "text-gold" : "text-gray500"}`}
             >
               {link.label}
             </Link>
